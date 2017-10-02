@@ -1,0 +1,15 @@
+<suite name="WebDriver">
+	<test name="ByTag">
+		<groups>
+			<run>
+				<include name="XClick" />
+			</run>
+		</groups>
+		<classes>
+			<class name="PageElementLocalize.LocalizeByTag" />
+			<class name="PageElementLocalize.JQuery" />
+			<class name="PageElementLocalize.TableElement" />
+			<class name="PageElementLocalize.BrowerWebElement" />
+		</classes>
+	</test>
+</suite>

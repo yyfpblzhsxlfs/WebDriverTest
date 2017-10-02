@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [demo]">
+  <test name="test(failed)">
+    <groups>
+      <run>
+        <include name="test3"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="TestWebDriver.TableTest">
+        <methods>
+          <include name="LocateTableCheckBox"/>
+        </methods>
+      </class> <!-- TestWebDriver.TableTest -->
+    </classes>
+  </test> <!-- test(failed) -->
+</suite> <!-- Failed suite [demo] -->

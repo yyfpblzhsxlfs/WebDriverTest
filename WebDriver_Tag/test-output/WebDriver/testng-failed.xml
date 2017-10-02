@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [WebDriver]">
+  <test name="ByTag(failed)">
+    <groups>
+      <run>
+        <include name="XClick"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="PageElementLocalize.BrowerWebElement">
+        <methods>
+          <include name="XClick"/>
+        </methods>
+      </class> <!-- PageElementLocalize.BrowerWebElement -->
+    </classes>
+  </test> <!-- ByTag(failed) -->
+</suite> <!-- Failed suite [WebDriver] -->

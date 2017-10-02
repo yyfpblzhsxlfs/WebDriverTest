@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <test name="IETest(failed)" parallel="tests">
+    <parameter name="brower" value="ie"/>
+    <classes>
+      <class name="TestWebDriver.BrowerTest">
+        <methods>
+          <include name="browerTest"/>
+          <include name="test" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- TestWebDriver.BrowerTest -->
+    </classes>
+  </test> <!-- IETest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

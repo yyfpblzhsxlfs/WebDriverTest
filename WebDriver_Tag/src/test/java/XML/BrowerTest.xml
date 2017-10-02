@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="tests" thread-count="3">
+	<test name="FireFoxTest">
+		<parameter name="brower" value="firefox" />
+		<classes>
+			<class name="TestWebDriver.BrowerTest" />
+		</classes>
+	</test>
+
+	<test name="IETest">
+		<parameter name="brower" value="ie" />
+		<classes>
+			<class name="TestWebDriver.BrowerTest" />
+		</classes>
+	</test>
+
+	<test name="ChromeTest">
+		<parameter name="brower" value="chrome" />
+		<classes>
+			<class name="TestWebDriver.BrowerTest" />
+		</classes>
+	</test>
+</suite>
