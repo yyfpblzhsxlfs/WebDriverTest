@@ -149,43 +149,66 @@ public class BrowerWebElement {
 
 		// 双击
 		builder.doubleClick(inputBox).build().perform();
-	
+
 		assertEquals("background: red;", inputBox.getAttribute("style"));
 		assertEquals("改变啦!", strValue);
 		ba.close();
 	}
-	
+
 	/*
-	 * 单选下拉框、多选下拉框、单选项、多选项操作
+	 * 单选下拉框
 	 */
-	@Test(groups = ("Select"))
-	public void Select() throws Exception {
+	@Test(groups = ("Select_1"))
+	public void Select_1() throws Exception {
 		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
 		driver = ba.setUp();
 		baseUrl = "file:///E:/ZIXUE/web/XClick.html";
 		driver.get(baseUrl);
 
-		// 点击button按钮,改变输入框文字
-		WebElement button = driver.findElement(By.id("button"));
 		
-		button.click();
-		// 获取改变后的输入框内容
-		WebElement value = driver.findElement(By.id("text"));
-		String strValue = value.getAttribute("value");
-
-		// 获取双击输入框元素
-		WebElement inputBox = driver.findElement(By.id("inputBox"));
-
-		// 声明Action对象,模拟鼠标操作
-		Actions builder = new Actions(driver);
-
-		// 双击
-		builder.doubleClick(inputBox).build().perform();
-	
-		assertEquals("background: red;", inputBox.getAttribute("style"));
-		assertEquals("改变啦!", strValue);
 		ba.close();
 	}
-	
-	
+
+	/*
+	 * 多选下拉框
+	 */
+	@Test(groups = ("Select_2"))
+	public void Select_2() throws Exception {
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		driver = ba.setUp();
+		baseUrl = "file:///E:/ZIXUE/web/XClick.html";
+		driver.get(baseUrl);
+
+		
+		ba.close();
+	}
+
+	/*
+	 * 单选项
+	 */
+	@Test(groups = ("Select_3"))
+	public void Select_3() throws Exception {
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		driver = ba.setUp();
+		baseUrl = "file:///E:/ZIXUE/web/XClick.html";
+		driver.get(baseUrl);
+
+		
+		ba.close();
+	}
+
+	/*
+	 * 单选下拉框、多选下拉框、单选项、多选项操作
+	 */
+	@Test(groups = ("Select_4"))
+	public void Select_4() throws Exception {
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		driver = ba.setUp();
+		baseUrl = "file:///E:/ZIXUE/web/XClick.html";
+		driver.get(baseUrl);
+
+		
+		ba.close();
+	}
+
 }

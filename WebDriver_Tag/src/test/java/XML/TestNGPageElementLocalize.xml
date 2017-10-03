@@ -2,7 +2,7 @@
 	<test name="ByTag">
 		<groups>
 			<run>
-				<include name="XClick" />
+				<include name="Input" />
 			</run>
 		</groups>
 		<classes>

@@ -1,60 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="13" total="14" passed="0">
+<testng-results skipped="0" failed="0" ignored="17" total="18" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="WebDriver" duration-ms="6049" started-at="2017-09-28T14:09:22Z" finished-at="2017-09-28T14:09:28Z">
+  <suite name="WebDriver" duration-ms="9254" started-at="2017-10-03T14:27:09Z" finished-at="2017-10-03T14:27:18Z">
     <groups>
-      <group name="XClick">
-        <method signature="BrowerWebElement.XClick()[pri:0, instance:PageElementLocalize.BrowerWebElement@3532ec19]" name="XClick" class="PageElementLocalize.BrowerWebElement"/>
-      </group> <!-- XClick -->
+      <group name="Input">
+        <method signature="BrowerWebElement.Input()[pri:0, instance:PageElementLocalize.BrowerWebElement@26653222]" name="Input" class="PageElementLocalize.BrowerWebElement"/>
+      </group> <!-- Input -->
     </groups>
-    <test name="ByTag" duration-ms="6049" started-at="2017-09-28T14:09:22Z" finished-at="2017-09-28T14:09:28Z">
+    <test name="ByTag" duration-ms="9254" started-at="2017-10-03T14:27:09Z" finished-at="2017-10-03T14:27:18Z">
       <class name="PageElementLocalize.BrowerWebElement">
-        <test-method status="FAIL" signature="XClick()[pri:0, instance:PageElementLocalize.BrowerWebElement@3532ec19]" name="XClick" duration-ms="6023" started-at="2017-09-28T22:09:22Z" finished-at="2017-09-28T22:09:28Z">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [改变啦!] but found [改变啦1!]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [改变啦!] but found [改变啦1!]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:513)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
-	at org.testng.Assert.assertEquals(Assert.java:116)
-	at org.testng.Assert.assertEquals(Assert.java:190)
-	at org.testng.Assert.assertEquals(Assert.java:200)
-	at PageElementLocalize.BrowerWebElement.XClick(BrowerWebElement.java:159)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:645)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:756)
-	at org.testng.TestRunner.run(TestRunner.java:610)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:382)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1293)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1218)
-	at org.testng.TestNG.runSuites(TestNG.java:1133)
-	at org.testng.TestNG.run(TestNG.java:1104)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method status="PASS" signature="Input()[pri:0, instance:PageElementLocalize.BrowerWebElement@26653222]" name="Input" duration-ms="9223" started-at="2017-10-03T22:27:09Z" finished-at="2017-10-03T22:27:18Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- XClick -->
+        </test-method> <!-- Input -->
       </class> <!-- PageElementLocalize.BrowerWebElement -->
     </test> <!-- ByTag -->
   </suite> <!-- WebDriver -->

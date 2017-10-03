@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-WebDriver">
-              <span class="suite-name border-failed">WebDriver</span>
+              <span class="suite-name border-passed">WebDriver</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-WebDriver">
-                    <span>E:\ZIXUE\software\workspace\WebDriver\src\test\java\XML\TestNGPageElementLocalize.xml</span>
+                    <span>D:\software\workspace\WebDriverTest\WebDriver_Tag\src\test\java\XML\TestNGPageElementLocalize.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,21 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-WebDriver" class="hide-methods failed suite-WebDriver"> (hide)</a> <!-- hide-methods failed suite-WebDriver -->
-                      <a href="#" panel-name="suite-WebDriver" class="show-methods failed suite-WebDriver"> (show)</a> <!-- show-methods failed suite-WebDriver -->
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-WebDriver" class="hide-methods passed suite-WebDriver"> (hide)</a> <!-- hide-methods passed suite-WebDriver -->
+                      <a href="#" panel-name="suite-WebDriver" class="show-methods passed suite-WebDriver"> (show)</a> <!-- show-methods passed suite-WebDriver -->
                     </span>
-                    <div class="method-list-content failed suite-WebDriver">
+                    <div class="method-list-content passed suite-WebDriver">
                       <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-WebDriver" title="PageElementLocalize.BrowerWebElement" hash-for-method="XClick">XClick</a> <!-- method navigator-link -->
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WebDriver" title="PageElementLocalize.BrowerWebElement" hash-for-method="Input">Input</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content failed suite-WebDriver -->
+                    </div> <!-- method-list-content passed suite-WebDriver -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -117,29 +117,25 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-WebDriver" class="panel WebDriver">
-          <div class="suite-WebDriver-class-failed">
+          <div class="suite-WebDriver-class-passed">
             <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
+              <img src="passed.png"/>
               <span class="class-name">PageElementLocalize.BrowerWebElement</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="XClick">
-                  </a> <!-- XClick -->
-                  <span class="method-name">XClick</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [改变啦!] but found [改变啦1!]
-	at PageElementLocalize.BrowerWebElement.XClick(BrowerWebElement.java:159)
-... Removed 31 stack frames
-</div> <!-- stack-trace -->
+                  <a name="Input">
+                  </a> <!-- Input -->
+                  <span class="method-name">Input</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-WebDriver-class-failed -->
+          </div> <!-- suite-WebDriver-class-passed -->
         </div> <!-- panel WebDriver -->
         <div panel-name="test-xml-WebDriver" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">E:\ZIXUE\software\workspace\WebDriver\src\test\java\XML\TestNGPageElementLocalize.xml</span>
+            <span class="header-content">D:\software\workspace\WebDriverTest\WebDriver_Tag\src\test\java\XML\TestNGPageElementLocalize.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -149,7 +145,7 @@
   &lt;test name=&quot;ByTag&quot;&gt;
     &lt;groups&gt;
       &lt;run&gt;
-        &lt;include name=&quot;XClick&quot;/&gt;
+        &lt;include name=&quot;Input&quot;/&gt;
       &lt;/run&gt;
     &lt;/groups&gt;
     &lt;classes&gt;
@@ -181,10 +177,10 @@
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
-              <span class="test-group-name">XClick</span>
+              <span class="test-group-name">Input</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">XClick</span>
+                <span class="method-in-group-name">Input</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -206,14 +202,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'XClick')
+data.setCell(0, 1, 'Input')
 data.setCell(0, 2, 'PageElementLocalize.BrowerWebElement')
-data.setCell(0, 3, 6023);
+data.setCell(0, 3, 9223);
 window.suiteTableData['WebDriver']= { tableData: data, tableDiv: 'times-div-WebDriver'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 seconds</span>
+              <span class="suite-total-time">Total running time: 9 seconds</span>
               <div id="times-div-WebDriver">
               </div> <!-- times-div-WebDriver -->
             </div> <!-- times-div -->
@@ -228,9 +224,27 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-WebDriver" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">13 ignored methods</span>
+            <span class="header-content">17 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">PageElementLocalize.TableElement</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">LocateTableTr</span>
+                <br/>
+                <span class="ignored-method-name">LocateTableCheckBox</span>
+                <br/>
+                <span class="ignored-method-name">LocateTable</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">PageElementLocalize.JQuery</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">JQueryLocalize</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
             <div class="ignored-class-div">
               <span class="ignored-class-name">PageElementLocalize.LocalizeByTag</span>
               <div class="ignored-methods-div">
@@ -247,20 +261,13 @@ return data;
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
             <div class="ignored-class-div">
-              <span class="ignored-class-name">PageElementLocalize.TableElement</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">LocateTableTr</span>
-                <br/>
-                <span class="ignored-method-name">LocateTableCheckBox</span>
-                <br/>
-                <span class="ignored-method-name">LocateTable</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
               <span class="ignored-class-name">PageElementLocalize.BrowerWebElement</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">Input</span>
+                <span class="ignored-method-name">Select_2</span>
+                <br/>
+                <span class="ignored-method-name">XClick</span>
+                <br/>
+                <span class="ignored-method-name">Select_1</span>
                 <br/>
                 <span class="ignored-method-name">BrowerNavigate</span>
                 <br/>
@@ -268,12 +275,9 @@ return data;
                 <br/>
                 <span class="ignored-method-name">getWebMsg</span>
                 <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">PageElementLocalize.JQuery</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">JQueryLocalize</span>
+                <span class="ignored-method-name">Select_4</span>
+                <br/>
+                <span class="ignored-method-name">Select_3</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -287,9 +291,7 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">PageElementLocalize.BrowerWebElement</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">XClick</span>
+                <span class="method-name">Input</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
