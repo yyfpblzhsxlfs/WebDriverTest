@@ -2,15 +2,15 @@
 <testng-results skipped="0" failed="0" ignored="17" total="18" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="WebDriver" duration-ms="9254" started-at="2017-10-03T14:27:09Z" finished-at="2017-10-03T14:27:18Z">
+  <suite name="WebDriver" duration-ms="11392" started-at="2017-10-04T09:24:58Z" finished-at="2017-10-04T09:25:09Z">
     <groups>
       <group name="Input">
         <method signature="BrowerWebElement.Input()[pri:0, instance:PageElementLocalize.BrowerWebElement@26653222]" name="Input" class="PageElementLocalize.BrowerWebElement"/>
       </group> <!-- Input -->
     </groups>
-    <test name="ByTag" duration-ms="9254" started-at="2017-10-03T14:27:09Z" finished-at="2017-10-03T14:27:18Z">
+    <test name="ByTag" duration-ms="11392" started-at="2017-10-04T09:24:58Z" finished-at="2017-10-04T09:25:09Z">
       <class name="PageElementLocalize.BrowerWebElement">
-        <test-method status="PASS" signature="Input()[pri:0, instance:PageElementLocalize.BrowerWebElement@26653222]" name="Input" duration-ms="9223" started-at="2017-10-03T22:27:09Z" finished-at="2017-10-03T22:27:18Z">
+        <test-method status="PASS" signature="Input()[pri:0, instance:PageElementLocalize.BrowerWebElement@26653222]" name="Input" duration-ms="11358" started-at="2017-10-04T17:24:58Z" finished-at="2017-10-04T17:25:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Input -->

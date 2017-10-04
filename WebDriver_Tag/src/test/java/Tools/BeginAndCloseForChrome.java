@@ -7,13 +7,23 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BeginAndCloseForChrome {
 	WebDriver driver;
+	private String URL = "";
+
+	public BeginAndCloseForChrome() {
+		super();
+	}
+
+	public BeginAndCloseForChrome(String URL) throws Exception {
+		this.URL = URL;
+	}
 
 	public WebDriver setUp() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "src\\driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		System.out.println("Chrome浏览器初始化完毕");
-
+		if (!URL.equals(""))
+			driver.get(URL);
 		return driver;
 	}
 

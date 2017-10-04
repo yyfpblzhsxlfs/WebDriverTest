@@ -4,13 +4,13 @@
   <test name="ByTag(failed)">
     <groups>
       <run>
-        <include name="Input"/>
+        <include name="Select_1"/>
       </run>
     </groups>
     <classes>
       <class name="PageElementLocalize.BrowerWebElement">
         <methods>
-          <include name="Input"/>
+          <include name="Select_1"/>
         </methods>
       </class> <!-- PageElementLocalize.BrowerWebElement -->
     </classes>

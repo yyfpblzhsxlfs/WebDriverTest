@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import Tools.BeginAndCloseForChrome;
+
 /*
  * 8.11章节实例
  */
@@ -23,10 +24,8 @@ public class TableElement {
 
 	@Test(groups = "LocateTable")
 	public void LocateTable() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/table.html");
 		driver = ba.setUp();
-		baseUrl = "file:///E:/ZIXUE/web/table.html";
-		driver.get(baseUrl);
 
 		WebElement table = driver.findElement(By.id("table"));
 		List<WebElement> rows = table.findElements(By.tagName("tr"));
@@ -49,11 +48,8 @@ public class TableElement {
 
 	@Test(groups = "LocateTableTr")
 	public void LocateTableTr() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/table.html");
 		driver = ba.setUp();
-		baseUrl = "file:///E:/ZIXUE/web/table.html";
-		driver.get(baseUrl);
-
 		/*
 		 * 以下两种定位方法任选， 一种是一次直接定位到所需标签
 		 * 一种是两次定位，在第二次定位时，使用//表示不识别具体位置，使用./表示从当前位置继续定位
@@ -77,10 +73,8 @@ public class TableElement {
 	 */
 	@Test(groups = "LocateTableCheckBox")
 	public void LocateTableCheckBox() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/tableChcekBox.html");
 		driver = ba.setUp();
-		baseUrl = "file:///E:/ZIXUE/web/tableChcekBox.html";
-		driver.get(baseUrl);
 		WebElement WebchcekBox = driver.findElement(By.xpath("//table[@id='table']/tbody/tr[3]/td[1]/input[2]"));
 
 		if (!WebchcekBox.isSelected()) {

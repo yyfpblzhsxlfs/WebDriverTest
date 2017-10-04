@@ -1,6 +1,11 @@
 package PageElementLocalize;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -8,7 +13,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+
 import org.openqa.selenium.Point;
 
 import Tools.BeginAndCloseForChrome;
@@ -79,10 +86,9 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("getWebMsg"))
 	public void getWebMsg() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("http://www.sogou.com/");
 		driver = ba.setUp();
-		baseUrl = "http://www.sogou.com/";
-		driver.get(baseUrl);
+
 		// 获取页面title
 		String title = driver.getTitle();
 		System.out.println("网页title:" + title);
@@ -104,10 +110,9 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("Input"))
 	public void Input() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Input.html");
 		driver = ba.setUp();
-		baseUrl = "file:///E:/ZIXUE/web/Input.html";
-		driver.get(baseUrl);
+
 		WebElement input = driver.findElement(By.id("text"));
 
 		String value = input.getAttribute("value");
@@ -129,10 +134,8 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("XClick"))
 	public void XClick() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/XClick.html");
 		driver = ba.setUp();
-		baseUrl = "file:///E:/ZIXUE/web/XClick.html";
-		driver.get(baseUrl);
 
 		// 点击button按钮,改变输入框文字
 		WebElement button = driver.findElement(By.id("button"));
@@ -160,12 +163,43 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("Select_1"))
 	public void Select_1() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
-		baseUrl = "file:///E:/ZIXUE/web/XClick.html";
-		driver.get(baseUrl);
 
-		
+		/* 单选下拉框操作 */
+		// 定位单选下拉框
+		Select select = new Select(driver.findElement(By.name("fruit_1")));
+
+		// 验证下拉框是否为多选，是多选返回true，单选返回false
+		assertFalse(select.isMultiple());
+
+		// 验证当前选项文本展示是否为桃子
+		assertEquals("桃子", select.getFirstSelectedOption().getText());
+
+		// 使用索引方法选中第四项，验证文本是否为"泥猴桃"
+		select.selectByIndex(3);
+		assertEquals("泥猴桃", select.getFirstSelectedOption().getText());
+
+		// 使用Value属性定位"山楂"
+		select.selectByValue("shanzha");
+		assertEquals("山楂", select.getFirstSelectedOption().getText());
+
+		// 使用文本方式定位"荔枝"
+		select.selectByVisibleText("荔枝");
+		assertEquals("荔枝", select.getFirstSelectedOption().getText());
+
+		/* 验证下拉列表预期 */
+		// 将数组转换为List
+		List<String> expect_options = Arrays.asList(new String[] { "桃子", "西瓜", "橘子", "泥猴桃", "山楂", "荔枝" });
+		// 获取网页上下拉列表所有元素文字
+		List<String> actual_options = new ArrayList<String>();
+		for (WebElement e : select.getOptions()) {
+			actual_options.add(e.getText());
+		}
+
+		// 验证两个List结果一致
+		assertEquals(actual_options, expect_options);
+
 		ba.close();
 	}
 
@@ -174,12 +208,12 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("Select_2"))
 	public void Select_2() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
-		baseUrl = "file:///E:/ZIXUE/web/XClick.html";
-		driver.get(baseUrl);
 
-		
+		// 定位多选框
+		Select select = new Select(driver.findElement(By.name("fruit_2")));
+
 		ba.close();
 	}
 
@@ -188,26 +222,20 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("Select_3"))
 	public void Select_3() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
-		baseUrl = "file:///E:/ZIXUE/web/XClick.html";
-		driver.get(baseUrl);
 
-		
 		ba.close();
 	}
 
 	/*
-	 * 单选下拉框、多选下拉框、单选项、多选项操作
+	 * 多选项
 	 */
 	@Test(groups = ("Select_4"))
 	public void Select_4() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
-		baseUrl = "file:///E:/ZIXUE/web/XClick.html";
-		driver.get(baseUrl);
 
-		
 		ba.close();
 	}
 

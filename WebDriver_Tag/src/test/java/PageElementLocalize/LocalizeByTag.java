@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import Tools.BeginAndCloseForChrome;
+
 /*
  * 8.2、8.3、8.4、8.5、8.8章节实例
  */
@@ -23,14 +24,8 @@ public class LocalizeByTag {
 	@Test(groups = { "TagByID" })
 	public void TagByID() throws Exception {
 		// init driver for Chrome Brower Driver
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/ByTag.html");
 		driver = ba.setUp();
-
-		// Define the URL is local file path
-		baseUrl = "file:///E:/ZIXUE/web/ByTag.html";
-
-		// Access local file path for baseUrl
-		driver.get(baseUrl);
 
 		// Find element on the file by id to WebElement
 		WebElement username = driver.findElement(By.id("id_username"));
@@ -56,14 +51,8 @@ public class LocalizeByTag {
 	@Test(groups = { "TagByName" })
 	public void TagByName() throws Exception {
 		// init driver for Chrome Brower Driver
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/ByTag.html");
 		driver = ba.setUp();
-
-		// Define the URL is local file path
-		baseUrl = "file:///E:/ZIXUE/web/ByTag.html";
-
-		// Access local file path for baseUrl
-		driver.get(baseUrl);
 
 		// Find element on the file by name to WebElement
 		WebElement username = driver.findElement(By.name("name_username"));
@@ -90,14 +79,8 @@ public class LocalizeByTag {
 	@Test(groups = { "TagByLinkText" })
 	public void TagByLinkText() throws Exception {
 		// init driver for Chrome Brower Driver
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/ByTag.html");
 		driver = ba.setUp();
-
-		// Define the URL is local file path
-		baseUrl = "file:///E:/ZIXUE/web/ByTag.html";
-
-		// Access local file path for baseUrl
-		driver.get(baseUrl);
 
 		// Find element on the file by LinkText to WebElement
 		WebElement sogou = driver.findElement(By.linkText("sogou搜索"));
@@ -118,14 +101,8 @@ public class LocalizeByTag {
 	@Test(groups = { "TagBypartialLinkText" })
 	public void TagBypartialLinkText() throws Exception {
 		// init driver for Chrome Brower Driver
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/ByTag.html");
 		driver = ba.setUp();
-
-		// Define the URL is local file path
-		baseUrl = "file:///E:/ZIXUE/web/ByTag.html";
-
-		// Access local file path for baseUrl
-		driver.get(baseUrl);
 
 		// Find element on the file by LinkText to WebElement
 		WebElement sogou = driver.findElement(By.partialLinkText("360"));
@@ -137,27 +114,21 @@ public class LocalizeByTag {
 
 		ba.close();
 	}
-	
+
 	/*
-	 * Page element localize for HTML tag attribute by XPATH . 
+	 * Page element localize for HTML tag attribute by XPATH .
 	 */
 	@Test(groups = { "TagByXPath" })
 	public void TagByXPath() throws Exception {
 		// init driver for Chrome Brower Driver
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/ByXPath.html");
 		driver = ba.setUp();
-
-		// Define the URL is local file path
-		baseUrl = "file:///E:/ZIXUE/web/ByXPath.html";
-
-		// Access local file path for baseUrl
-		driver.get(baseUrl);
 
 		// Find element on the file by XPath to WebElement
 		WebElement baidu = driver.findElement(By.xpath("//a[text()='百度搜索']"));
 
 		baidu.click();
-		
+
 		System.out.println(driver.getTitle());
 
 		ba.close();

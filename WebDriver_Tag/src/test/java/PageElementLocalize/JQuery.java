@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import Tools.BeginAndCloseForChrome;
+
 /*
  * 8.10章节代码实例
  */
@@ -30,11 +31,8 @@ public class JQuery {
 	@Test(groups = { "JQueryLocalize" })
 	public void JQueryLocalize() throws Exception {
 		// init Chrome Brower Driver
-		BeginAndCloseForChrome bc = new BeginAndCloseForChrome();
+		BeginAndCloseForChrome bc = new BeginAndCloseForChrome("http://sogou.com/");
 		driver = bc.setUp();
-
-		baseUrl = "http://sogou.com/";
-		driver.get(baseUrl);
 
 		js = (JavascriptExecutor) driver;
 
