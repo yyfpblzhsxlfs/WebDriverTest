@@ -2,7 +2,7 @@
 	<test name="ByTag">
 		<groups>
 			<run>
-				<include name="Input" />
+				<include name="Select_4" />
 			</run>
 		</groups>
 		<classes>

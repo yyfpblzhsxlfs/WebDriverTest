@@ -2,6 +2,7 @@ package PageElementLocalize;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -214,6 +215,30 @@ public class BrowerWebElement {
 		// 定位多选框
 		Select select = new Select(driver.findElement(By.name("fruit_2")));
 
+		// 验证选中的select是否为多选，非拿回True是多选
+		assertTrue(select.isMultiple());
+		// 选择索引3的泥猴桃、value值为shanzha的山楂和文本为荔枝
+		select.selectByIndex(3);
+		select.selectByValue("shanzha");
+		select.selectByVisibleText("荔枝");
+		Thread.sleep(3000);
+
+		// 取消全部选项
+		select.deselectAll();
+		Thread.sleep(3000);
+
+		// 再次选择索引3的泥猴桃、value值为shanzha的山楂和文本为荔枝
+		select.selectByIndex(3);
+		select.selectByValue("shanzha");
+		select.selectByVisibleText("荔枝");
+		Thread.sleep(3000);
+
+		// 使用反向方法取消选中
+		select.deselectByIndex(3);
+		select.deselectByValue("shanzha");
+		select.deselectByVisibleText("荔枝");
+		Thread.sleep(3000);
+
 		ba.close();
 	}
 
@@ -224,8 +249,30 @@ public class BrowerWebElement {
 	public void Select_3() throws Exception {
 		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
+		// 定位草莓选项
+		WebElement radioOption = driver.findElement(By.xpath("//input[@value='berry1']"));
 
+		// 验证草莓选项是否被选中，如果没有被选择，则选中
+		if (!radioOption.isSelected())
+			radioOption.click();
+
+		// 判断草莓是否被选中
+		assertTrue(radioOption.isSelected());
+
+		// 定位所有name值是fruit的标签，并存储到List中
+		List<WebElement> list = driver.findElements(By.name("fruit1"));
+
+		// 便利所有选项的value，如果有watermelon，则选中
+		for (WebElement e : list) {
+			if (e.getAttribute("value").equals("watermelon1")) {
+				if (!e.isSelected())
+					e.click();
+				assertTrue(e.isSelected());
+				break;
+			}
+		}
 		ba.close();
+
 	}
 
 	/*
@@ -235,6 +282,33 @@ public class BrowerWebElement {
 	public void Select_4() throws Exception {
 		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
+
+		// 定位value值为orange的元素
+		WebElement orange = driver.findElement(By.xpath("//input[@value='orange2']"));
+
+		// 判断该元素是否选中，如果没有选中，则选中
+		if (!orange.isSelected())
+			orange.click();
+
+		// 验证该orange选中
+		assertTrue(orange.isSelected());
+		Thread.sleep(3000);
+		// 该选项选中后，取消选中
+		if (orange.isSelected())
+			orange.click();
+		// 验证该orange取消选中
+		assertFalse(orange.isSelected());
+
+		// 查找所有name值为fruit，并选中
+		List<WebElement> list = driver.findElements(By.xpath("//input[@name='fruit2']"));
+
+		// 让所有name值为fruit的选项被选中
+		for (WebElement e : list) {
+			if (!e.isSelected())
+				e.click();
+
+			assertTrue(e.isSelected());
+		}
 
 		ba.close();
 	}

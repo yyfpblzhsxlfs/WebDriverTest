@@ -2,18 +2,18 @@
 <testng-results skipped="0" failed="0" ignored="17" total="18" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="WebDriver" duration-ms="11392" started-at="2017-10-04T09:24:58Z" finished-at="2017-10-04T09:25:09Z">
+  <suite name="WebDriver" duration-ms="7163" started-at="2017-10-04T14:40:04Z" finished-at="2017-10-04T14:40:12Z">
     <groups>
-      <group name="Input">
-        <method signature="BrowerWebElement.Input()[pri:0, instance:PageElementLocalize.BrowerWebElement@26653222]" name="Input" class="PageElementLocalize.BrowerWebElement"/>
-      </group> <!-- Input -->
+      <group name="Select_4">
+        <method signature="BrowerWebElement.Select_4()[pri:0, instance:PageElementLocalize.BrowerWebElement@26653222]" name="Select_4" class="PageElementLocalize.BrowerWebElement"/>
+      </group> <!-- Select_4 -->
     </groups>
-    <test name="ByTag" duration-ms="11392" started-at="2017-10-04T09:24:58Z" finished-at="2017-10-04T09:25:09Z">
+    <test name="ByTag" duration-ms="7163" started-at="2017-10-04T14:40:04Z" finished-at="2017-10-04T14:40:12Z">
       <class name="PageElementLocalize.BrowerWebElement">
-        <test-method status="PASS" signature="Input()[pri:0, instance:PageElementLocalize.BrowerWebElement@26653222]" name="Input" duration-ms="11358" started-at="2017-10-04T17:24:58Z" finished-at="2017-10-04T17:25:09Z">
+        <test-method status="PASS" signature="Select_4()[pri:0, instance:PageElementLocalize.BrowerWebElement@26653222]" name="Select_4" duration-ms="7129" started-at="2017-10-04T22:40:04Z" finished-at="2017-10-04T22:40:12Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Input -->
+        </test-method> <!-- Select_4 -->
       </class> <!-- PageElementLocalize.BrowerWebElement -->
     </test> <!-- ByTag -->
   </suite> <!-- WebDriver -->
