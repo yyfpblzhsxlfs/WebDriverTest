@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.*;
+
 /*
  * 第9章节实例
  */
@@ -19,10 +20,22 @@ public class BrowerTest {
 	@BeforeClass
 	public void browerTest(String Brower) {
 		if (Brower.equals("firefox")) {
-			System.setProperty("webdriver.gecko.driver", "C:\\Program Files (x86)\\Mozilla Firefox\\geckodriver.exe");
+			String arch = System.getProperty("os.arch");
+			if (arch.equals("x86"))
+				System.setProperty("webdriver.gecko.driver", "src\\driver\\geckodriver-v0.15.0-win32.exe");
+			else if (arch.equals("amd64"))
+				System.setProperty("webdriver.gecko.driver", "src\\driver\\geckodriver-v0.15.0-win64.exe");
+			else
+				System.out.println("火狐启动失败，系统为：" + arch);
 			driver = new FirefoxDriver();
 		} else if (Brower.equals("ie")) {
-			System.setProperty("webdriver.ie.driver", "src\\driver\\IEDriverServer.exe");
+			String arch = System.getProperty("os.arch");
+			if (arch.equals("x86"))
+				System.setProperty("webdriver.ie.driver", "src\\driver\\IEDriverServer_32.exe");
+			else if (arch.equals("amd64"))
+				System.setProperty("webdriver.ie.driver", "src\\driver\\IEDriverServer_64.exe");
+			else
+				System.out.println("IE启动失败，系统为：" + arch);
 			driver = new InternetExplorerDriver();
 		} else if (Brower.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "src\\driver\\chromedriver.exe");
@@ -31,11 +44,17 @@ public class BrowerTest {
 			System.out.println("未识别的浏览器");
 		}
 		driver.get(baseUrl);
+
 	}
 
 	@Parameters("brower")
 	@Test
 	public void test(String Brower) {
 		System.out.println(Brower);
+	}
+
+//	@AfterClass
+	public void down() {
+		driver.close();
 	}
 }

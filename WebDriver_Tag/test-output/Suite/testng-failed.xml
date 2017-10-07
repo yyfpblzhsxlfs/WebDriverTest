@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
-  <test name="IETest(failed)" parallel="tests">
-    <parameter name="brower" value="ie"/>
+  <test name="FireFoxTest(failed)" parallel="tests">
+    <parameter name="brower" value="firefox"/>
     <classes>
       <class name="TestWebDriver.BrowerTest">
         <methods>
@@ -11,5 +11,5 @@
         </methods>
       </class> <!-- TestWebDriver.BrowerTest -->
     </classes>
-  </test> <!-- IETest(failed) -->
+  </test> <!-- FireFoxTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->
