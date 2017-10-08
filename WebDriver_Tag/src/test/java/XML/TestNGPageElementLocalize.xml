@@ -2,7 +2,7 @@
 	<test name="ByTag">
 		<groups>
 			<run>
-				<include name="Select_4" />
+				<include name="mouseClickAndRelease" />
 			</run>
 		</groups>
 		<classes>

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.os.WindowsUtils;
 import org.testng.annotations.*;
 
 /*
@@ -15,10 +16,12 @@ import org.testng.annotations.*;
 public class BrowerTest {
 	public WebDriver driver;
 	String baseUrl = "http://www.sogou.com";
+	String Brower;
 
 	@Parameters("brower")
 	@BeforeClass
 	public void browerTest(String Brower) {
+		this.Brower = Brower;
 		if (Brower.equals("firefox")) {
 			String arch = System.getProperty("os.arch");
 			if (arch.equals("x86"))
@@ -53,8 +56,23 @@ public class BrowerTest {
 		System.out.println(Brower);
 	}
 
-//	@AfterClass
+	// @AfterClass
 	public void down() {
 		driver.close();
 	}
+
+	public void kill() {
+		if (!Brower.equals("")) {
+			if (Brower.equals("firefox"))
+				WindowsUtils.killByName("firefox.exe");
+			else if (Brower.equals("ie"))
+				WindowsUtils.killByName("iexplore.exe");
+			else if (Brower.equals("chrome"))
+				WindowsUtils.killByName("chrome.exe");
+			else
+				System.out.println("杀掉浏览器进程失败，未知浏览器");
+		} else
+			System.out.println("无浏览器进程");
+	}
+
 }

@@ -14,7 +14,10 @@ public class BeginAndCloseForChrome {
 	}
 
 	public BeginAndCloseForChrome(String URL) throws Exception {
-		this.URL = URL;
+		if (URL.equals("sogou"))
+			this.URL = "http://www.sogou.com/";
+		else
+			this.URL = URL;
 	}
 
 	public WebDriver setUp() throws Exception {

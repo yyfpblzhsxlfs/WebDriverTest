@@ -1,0 +1,27 @@
+<html>
+<head>
+<script type="text/javascript">
+	function mouseDownFun() {
+		document.getElementById('div1').innerHTML += '鼠标左键被按下;';
+	}
+
+	function mouseUpFun() {
+		document.getElementById('div1').innerHTML += '已经被按下的鼠标鼠标左键被释放抬起;';
+	}
+
+	function clickFun() {
+		document.getElementById('div1').innerHTML += '单击动作发生;';
+	}
+</script>
+</head>
+
+<body>
+	<div id="div1" onmousedown="mouseDownFun();" onmouseup="mouseUpFun();"
+		onclick="clickFun();"
+		style="background: #CCC; border: px; solid: #999; width: 200px; height: 200px; padding: 10px">
+	</div>
+
+	<input style="margin-top: 10px" type="button"
+		onclick="document.getElementById('div1').innerHTML='';" value="清除信息" />
+</body>
+</html>

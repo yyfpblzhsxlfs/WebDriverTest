@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
-  <test name="FireFoxTest(failed)" parallel="tests">
-    <parameter name="brower" value="firefox"/>
+<suite name="Failed suite [WebDriver]">
+  <test name="ByTag(failed)">
+    <groups>
+      <run>
+        <include name="mouseClickAndRelease"/>
+      </run>
+    </groups>
     <classes>
-      <class name="TestWebDriver.BrowerTest">
+      <class name="PageElementLocalize.BrowerWebElement">
         <methods>
-          <include name="browerTest"/>
-          <include name="test" invocation-numbers="0"/>
+          <include name="mouseClickAndRelease"/>
         </methods>
-      </class> <!-- TestWebDriver.BrowerTest -->
+      </class> <!-- PageElementLocalize.BrowerWebElement -->
     </classes>
-  </test> <!-- FireFoxTest(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- ByTag(failed) -->
+</suite> <!-- Failed suite [WebDriver] -->

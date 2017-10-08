@@ -4,20 +4,30 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
+import org.testng.annotations.Test;
+
+import com.sun.jna.platform.win32.WinNT.WELL_KNOWN_SID_TYPE;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.Test;
-
 import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
+
+import TestWebDriver.BrowerTest;
 
 import Tools.BeginAndCloseForChrome;
 
@@ -39,7 +49,7 @@ public class BrowerWebElement {
 		baseUrl = "http://www.baidu.com/";
 		driver.get(baseUrl);
 		// 访问网页方法二
-		baseUrl = "http://www.sogou.com/";
+		baseUrl = "sogou";
 		driver.navigate().to(baseUrl);
 
 		// 返回上一个浏览界面
@@ -59,7 +69,7 @@ public class BrowerWebElement {
 	public void operateBrower() throws Exception {
 		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
 		driver = ba.setUp();
-		baseUrl = "http://www.sogou.com/";
+		baseUrl = "sogou";
 		// 声明一个坐标点
 		Point point = new Point(150, 150);
 
@@ -87,7 +97,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("getWebMsg"))
 	public void getWebMsg() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("http://www.sogou.com/");
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("sogou");
 		driver = ba.setUp();
 
 		// 获取页面title
@@ -109,8 +119,8 @@ public class BrowerWebElement {
 	/*
 	 * 测试网页元素操作输入框,清空输入框,在输入框重新输入内容
 	 */
-	@Test(groups = ("Input"))
-	public void Input() throws Exception {
+	@Test(groups = ("clearAndSendTextToInputBoxText"))
+	public void clearAndSendTextToInputBoxText() throws Exception {
 		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Input.html");
 		driver = ba.setUp();
 
@@ -118,7 +128,7 @@ public class BrowerWebElement {
 
 		String value = input.getAttribute("value");
 		System.out.println("默认展示:" + value);
-		// 清楚输入框内容
+		// 清除输入框内容
 		input.clear();
 		Thread.sleep(3000);
 
@@ -162,8 +172,8 @@ public class BrowerWebElement {
 	/*
 	 * 单选下拉框
 	 */
-	@Test(groups = ("Select_1"))
-	public void Select_1() throws Exception {
+	@Test(groups = ("checkSelectText"))
+	public void checkSelectText() throws Exception {
 		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
 
@@ -207,8 +217,8 @@ public class BrowerWebElement {
 	/*
 	 * 多选下拉框
 	 */
-	@Test(groups = ("Select_2"))
-	public void Select_2() throws Exception {
+	@Test(groups = ("operateMultipleOptionDropList"))
+	public void operateMultipleOptionDropList() throws Exception {
 		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
 
@@ -245,8 +255,8 @@ public class BrowerWebElement {
 	/*
 	 * 单选项
 	 */
-	@Test(groups = ("Select_3"))
-	public void Select_3() throws Exception {
+	@Test(groups = ("operateRadio"))
+	public void operateRadio() throws Exception {
 		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
 		// 定位草莓选项
@@ -278,8 +288,8 @@ public class BrowerWebElement {
 	/*
 	 * 多选项
 	 */
-	@Test(groups = ("Select_4"))
-	public void Select_4() throws Exception {
+	@Test(groups = ("operateCheckBox"))
+	public void operateCheckBox() throws Exception {
 		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
 
@@ -313,4 +323,201 @@ public class BrowerWebElement {
 		ba.close();
 	}
 
+	/*
+	 * kill浏览器进程
+	 */
+	@Test(groups = ("operateWindowsProcess"))
+	public void operateWindowsProcess() throws Exception {
+		BrowerTest firefoxBrower = new BrowerTest();
+		BrowerTest ieBrower = new BrowerTest();
+		BrowerTest chromeBrower = new BrowerTest();
+		// 三个参数firefox、ie、chrome
+		firefoxBrower.browerTest("firefox");
+		ieBrower.browerTest("ie");
+		chromeBrower.browerTest("chrome");
+
+		firefoxBrower.kill();
+		ieBrower.kill();
+		chromeBrower.kill();
+	}
+
+	/*
+	 * 浏览器截图
+	 */
+	@Test(groups = ("captureScreenInCurrentWindow"))
+	public void captureScreenInCurrentWindow() throws Exception {
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("sogou");
+		driver = ba.setUp();
+
+		// 截屏，并将图片转换为File格式
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(scrFile, new File("E:/ZIXUE/web/WindowBrower/" + "test" + ".png"));
+
+		ba.close();
+	}
+
+	/*
+	 * 检查界面文本内容
+	 */
+	@Test(groups = ("isElementTextPresent"))
+	public void isElementTextPresent() throws Exception {
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/checkText.html");
+		driver = ba.setUp();
+
+		WebElement text = driver.findElement(By.xpath("//p[1]"));
+
+		String contentText = text.getText();
+		// 全匹配
+		assertEquals(contentText, "Selenium自动化测试之路起步");
+		// 部分匹配
+		assertTrue(contentText.contains("自动化"));
+		// 前匹配
+		assertTrue(contentText.startsWith("Selenium"));
+		// 后匹配
+		assertTrue(contentText.endsWith("起步"));
+
+		ba.close();
+	}
+
+	/*
+	 * js执行
+	 */
+	@Test(groups = ("executeJavaScript"))
+	public void executeJavaScript() throws Exception {
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("https://www.baidu.com/");
+		driver = ba.setUp();
+
+		// 声明一个JS执行器对象
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// 调用执行器方法执行JS
+		String title = (String) js.executeScript("return document.title");
+		// 验证获取标题是否正确
+		assertEquals(title, "百度一下，你就知道");
+
+		// 返回按钮上的文字
+		String buttonText = (String) js.executeScript("var button = document.getElementById('su');return button.value");
+		System.out.println(buttonText);
+		assertEquals("百度一下", buttonText);
+		ba.close();
+	}
+
+	/*
+	 * 拖拽页面元素
+	 */
+	@Test(groups = ("dragPapeElement"))
+	public void dragPapeElement() throws Exception {
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/dragPepeElement.html");
+		driver = ba.setUp();
+
+		WebElement draggable = driver.findElement(By.id("draggable"));
+
+		for (int i = 0; i < 5; i++) {
+			new Actions(driver).dragAndDropBy(draggable, 0, 10).build().perform();
+		}
+
+		for (int i = 0; i < 5; i++) {
+			new Actions(driver).dragAndDropBy(draggable, 10, 0).build().perform();
+		}
+
+		ba.close();
+	}
+
+	/*
+	 * 模拟键盘操作
+	 */
+	@Test(groups = ("clickKyes"))
+	public void clickKyes() throws Exception {
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("sogou");
+		driver = ba.setUp();
+
+		Actions action = new Actions(driver);
+		// 按下Ctrl键
+		action.keyDown(Keys.CONTROL);
+		// 按下Shift键
+		action.keyDown(Keys.SHIFT);
+		// 按下Alt键
+		action.keyDown(Keys.ALT);
+
+		// 释放Ctrl键
+		action.keyUp(Keys.CONTROL);
+		// 释放Shift键
+		action.keyUp(Keys.SHIFT);
+		// 释放Alt键
+		action.keyUp(Keys.ALT);
+
+		// 模拟输入大写ABCDEFG
+		action.keyDown(Keys.SHIFT).sendKeys("abcdefg").perform();
+
+		String text = driver.findElement(By.id("query")).getAttribute("value");
+
+		assertEquals("ABCDEFG", text);
+		ba.close();
+	}
+
+	/*
+	 * 模拟键盘操作
+	 */
+	@Test(groups = ("rightClickMouse"))
+	public void rightClickMouse() throws Exception {
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("sogou");
+		driver = ba.setUp();
+
+		Actions action = new Actions(driver);
+
+		action.contextClick(driver.findElement(By.id("query"))).perform();
+		Thread.sleep(3000);
+
+		ba.close();
+	}
+
+	/*
+	 * 模拟鼠标悬浮
+	 */
+	@Test(groups = ("roverOnElement"))
+	public void roverOnElement() throws Exception {
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/roverOnElement.html");
+		driver = ba.setUp();
+
+		WebElement link1 = driver.findElement(By.id("link1"));
+		WebElement link2 = driver.findElement(By.id("link2"));
+
+		Actions action = new Actions(driver);
+
+		action.moveToElement(link1).perform();
+		Thread.sleep(3000);
+
+		action.moveToElement(link2).perform();
+		Thread.sleep(3000);
+		ba.close();
+	}
+
+	/*
+	 * 模拟鼠标在制定元素上单击左键和释放操作
+	 */
+	@Test(groups = ("mouseClickAndRelease"))
+	public void mouseClickAndRelease() throws Exception {
+		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/mouseClickAndRelease.html");
+		driver = ba.setUp();
+
+		WebElement div = driver.findElement(By.xpath("//div[@id='div1']"));
+
+		Actions action = new Actions(driver);
+
+		action.clickAndHold(div).perform();
+		Thread.sleep(3000);
+		action.release(div).perform();
+		Thread.sleep(3000);
+
+		assertEquals("鼠标左键被按下;已经被按下的鼠标鼠标左键被释放抬起;", div.getText());
+
+		WebElement input = driver.findElement(By.xpath("//input[@value='清除信息']"));
+		input.click();
+		assertEquals("", div.getText());
+
+		action.click(div).perform();
+		assertEquals("鼠标左键被按下;已经被按下的鼠标鼠标左键被释放抬起;单击动作发生;", div.getText());
+		Thread.sleep(3000);
+
+		ba.close();
+	}
 }
