@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import Tools.BeginAndCloseForChrome;
+import Tools.BeginAndCloseChrome;
 
 /*
  * 8.2、8.3、8.4、8.5、8.8章节实例
@@ -15,16 +15,13 @@ public class LocalizeByTag {
 	// Define brower driver
 	private WebDriver driver;
 
-	// Define URL
-	private String baseUrl;
-
 	/*
 	 * Page element localize for HTML tag attribute by ID
 	 */
 	@Test(groups = { "TagByID" })
 	public void TagByID() throws Exception {
 		// init driver for Chrome Brower Driver
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/ByTag.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/ByTag.html");
 		driver = ba.setUp();
 
 		// Find element on the file by id to WebElement
@@ -51,7 +48,7 @@ public class LocalizeByTag {
 	@Test(groups = { "TagByName" })
 	public void TagByName() throws Exception {
 		// init driver for Chrome Brower Driver
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/ByTag.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/ByTag.html");
 		driver = ba.setUp();
 
 		// Find element on the file by name to WebElement
@@ -79,7 +76,7 @@ public class LocalizeByTag {
 	@Test(groups = { "TagByLinkText" })
 	public void TagByLinkText() throws Exception {
 		// init driver for Chrome Brower Driver
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/ByTag.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/ByTag.html");
 		driver = ba.setUp();
 
 		// Find element on the file by LinkText to WebElement
@@ -101,7 +98,7 @@ public class LocalizeByTag {
 	@Test(groups = { "TagBypartialLinkText" })
 	public void TagBypartialLinkText() throws Exception {
 		// init driver for Chrome Brower Driver
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/ByTag.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/ByTag.html");
 		driver = ba.setUp();
 
 		// Find element on the file by LinkText to WebElement
@@ -121,7 +118,7 @@ public class LocalizeByTag {
 	@Test(groups = { "TagByXPath" })
 	public void TagByXPath() throws Exception {
 		// init driver for Chrome Brower Driver
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/ByXPath.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/ByXPath.html");
 		driver = ba.setUp();
 
 		// Find element on the file by XPath to WebElement

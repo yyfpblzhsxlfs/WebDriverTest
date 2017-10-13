@@ -4,13 +4,13 @@
   <test name="ByTag(failed)">
     <groups>
       <run>
-        <include name="mouseClickAndRelease"/>
+        <include name="testHandleFrame"/>
       </run>
     </groups>
     <classes>
       <class name="PageElementLocalize.BrowerWebElement">
         <methods>
-          <include name="mouseClickAndRelease"/>
+          <include name="testHandleFrame"/>
         </methods>
       </class> <!-- PageElementLocalize.BrowerWebElement -->
     </classes>

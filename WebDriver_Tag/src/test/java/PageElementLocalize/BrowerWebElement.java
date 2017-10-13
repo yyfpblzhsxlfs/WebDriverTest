@@ -3,33 +3,39 @@ package PageElementLocalize;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
-
+import static org.testng.Assert.fail;
 import org.testng.annotations.Test;
-
-import com.sun.jna.platform.win32.WinNT.WELL_KNOWN_SID_TYPE;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 
 import TestWebDriver.BrowerTest;
-
-import Tools.BeginAndCloseForChrome;
+import Tools.BeginAndCloseChrome;
+import Tools.Element;
 
 /*
  * 第10章实例
@@ -43,7 +49,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("BrowerNavigate"))
 	public void BrowerNavigate() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome();
 		driver = ba.setUp();
 		// 访问网页方法一
 		baseUrl = "http://www.baidu.com/";
@@ -67,7 +73,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("operateBrower"))
 	public void operateBrower() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome();
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome();
 		driver = ba.setUp();
 		baseUrl = "sogou";
 		// 声明一个坐标点
@@ -97,7 +103,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("getWebMsg"))
 	public void getWebMsg() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("sogou");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("sogou");
 		driver = ba.setUp();
 
 		// 获取页面title
@@ -121,7 +127,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("clearAndSendTextToInputBoxText"))
 	public void clearAndSendTextToInputBoxText() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Input.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/Input.html");
 		driver = ba.setUp();
 
 		WebElement input = driver.findElement(By.id("text"));
@@ -145,7 +151,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("XClick"))
 	public void XClick() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/XClick.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/XClick.html");
 		driver = ba.setUp();
 
 		// 点击button按钮,改变输入框文字
@@ -174,7 +180,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("checkSelectText"))
 	public void checkSelectText() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
 
 		/* 单选下拉框操作 */
@@ -219,7 +225,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("operateMultipleOptionDropList"))
 	public void operateMultipleOptionDropList() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
 
 		// 定位多选框
@@ -257,7 +263,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("operateRadio"))
 	public void operateRadio() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
 		// 定位草莓选项
 		WebElement radioOption = driver.findElement(By.xpath("//input[@value='berry1']"));
@@ -290,7 +296,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("operateCheckBox"))
 	public void operateCheckBox() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/Select.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/Select.html");
 		driver = ba.setUp();
 
 		// 定位value值为orange的元素
@@ -346,7 +352,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("captureScreenInCurrentWindow"))
 	public void captureScreenInCurrentWindow() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("sogou");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("sogou");
 		driver = ba.setUp();
 
 		// 截屏，并将图片转换为File格式
@@ -361,7 +367,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("isElementTextPresent"))
 	public void isElementTextPresent() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/checkText.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/checkText.html");
 		driver = ba.setUp();
 
 		WebElement text = driver.findElement(By.xpath("//p[1]"));
@@ -384,7 +390,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("executeJavaScript"))
 	public void executeJavaScript() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("https://www.baidu.com/");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("https://www.baidu.com/");
 		driver = ba.setUp();
 
 		// 声明一个JS执行器对象
@@ -406,7 +412,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("dragPapeElement"))
 	public void dragPapeElement() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/dragPepeElement.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/dragPepeElement.html");
 		driver = ba.setUp();
 
 		WebElement draggable = driver.findElement(By.id("draggable"));
@@ -427,7 +433,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("clickKyes"))
 	public void clickKyes() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("sogou");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("sogou");
 		driver = ba.setUp();
 
 		Actions action = new Actions(driver);
@@ -459,7 +465,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("rightClickMouse"))
 	public void rightClickMouse() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("sogou");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("sogou");
 		driver = ba.setUp();
 
 		Actions action = new Actions(driver);
@@ -475,7 +481,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("roverOnElement"))
 	public void roverOnElement() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/roverOnElement.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/roverOnElement.html");
 		driver = ba.setUp();
 
 		WebElement link1 = driver.findElement(By.id("link1"));
@@ -496,7 +502,7 @@ public class BrowerWebElement {
 	 */
 	@Test(groups = ("mouseClickAndRelease"))
 	public void mouseClickAndRelease() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/mouseClickAndRelease.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/mouseClickAndRelease.html");
 		driver = ba.setUp();
 
 		WebElement div = driver.findElement(By.xpath("//div[@id='div1']"));
@@ -519,5 +525,424 @@ public class BrowerWebElement {
 		Thread.sleep(3000);
 
 		ba.close();
+	}
+
+	/*
+	 * 查看页面元素属性
+	 */
+	@Test(groups = ("getWebElementAttribute"))
+	public void getWebElementAttribute() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("sogou");
+		driver = ba.setUp();
+
+		WebElement input = driver.findElement(By.id("query"));
+
+		String inputString = "要输入的内容";
+
+		input.sendKeys(inputString);
+
+		String assertInput = input.getAttribute("value");
+
+		assertEquals(assertInput, inputString);
+
+		ba.close();
+	}
+
+	/*
+	 * 查看页面元素CSS属性
+	 */
+	@Test(groups = ("getWebElementCssAttribute"))
+	public void getWebElementCssAttribute() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("sogou");
+		driver = ba.setUp();
+
+		WebElement input = driver.findElement(By.id("query"));
+
+		String inputWidth = input.getCssValue("width");
+
+		assertEquals(inputWidth, "499px");
+
+		ba.close();
+	}
+
+	/*
+	 * 隐式等待
+	 */
+	@Test(groups = ("testImpilicWait"))
+	public void testImpilicWait() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("sogou");
+		driver = ba.setUp();
+
+		// 隐式等待设置,默认为0,设置后,作用在整个driver生命周期
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		try {
+			WebElement inputText = driver.findElement(By.id("query"));
+			WebElement searchButton = driver.findElement(By.id("stb"));
+
+			inputText.sendKeys("inputText is found");
+			searchButton.click();
+		} catch (NoSuchElementException e) {
+			fail("inputText is not found");
+		}
+		ba.close();
+	}
+
+	/*
+	 * 显式等待,ExpectedConditions类中子类的方法,可以进行显式等待的判断
+	 */
+	@Test(groups = ("testExplicitWait"))
+	public void testExplicitWait() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/testExplicitWait.html");
+		driver = ba.setUp();
+
+		// 声明一个webdriverwait对象,设定出发条件的最长等待时间10秒
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		// 判断标题中是否包含水果
+		boolean isTrue = wait.until(ExpectedConditions.titleContains("水果"));
+		assertTrue(isTrue);
+		isTrue = false;
+		// 获取下拉列表桃子选项,验证该选项是否处于选中状态
+		WebElement select = driver.findElement(By.id("peach"));
+		wait.until(ExpectedConditions.elementToBeClickable(select));
+		isTrue = select.isSelected();
+		assertTrue(isTrue);
+
+		// 获取复选框对象是否可见,并且是否可被单击
+		WebElement checkbox = driver.findElement(By.xpath("//input[@type='checkbox']"));
+		wait.until(ExpectedConditions.elementToBeClickable(checkbox));
+		assertTrue(checkbox.isEnabled());
+
+		// 判断p标签是否已显示
+		WebElement p1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p")));
+		assertEquals("请选择你爱吃的水果", p1.getText());
+
+		// 判断p标签中是否包含"爱吃的水果"字样
+		isTrue = false;
+		isTrue = wait.until(ExpectedConditions.textToBePresentInElement(p1, "爱吃的水果"));
+		assertTrue(isTrue);
+
+		ba.close();
+	}
+
+	/*
+	 * 自定义显式等待
+	 */
+	@Test(groups = ("testExplicitWaitZIDINGYI"))
+	public void testExplicitWaitZIDINGYI() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/testExplicitWait.html");
+		driver = ba.setUp();
+		// 显示等待验证是否可以获取到txt文本框,如果可以获取到,继续下面的操作
+		WebElement textInputBox = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<WebElement>() {
+			public WebElement apply(WebDriver d) {
+				return d.findElement(By.xpath("//*[@type='text']"));
+			}
+		});
+		assertEquals("今年夏天西瓜特别甜", textInputBox.getAttribute("value"));
+
+		// 获取p标签,判断p标签中是否包含"爱吃"关键字,如果有,继续下面的操作
+		boolean containTextFlag = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver d) {
+				return d.findElement(By.xpath("//p")).getText().contains("爱吃");
+			}
+		});
+		assertTrue(containTextFlag);
+
+		// 验证文本输入框是否课件,如果课件,继续下面的操作
+		boolean inputTextVisibleFlag = (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver d) {
+				return d.findElement(By.xpath("//*[@type='text']")).isDisplayed();
+			}
+
+		});
+		assertTrue(inputTextVisibleFlag);
+		ba.close();
+		// 验证界面ajax加载,无对应测试页面
+		// boolean ajaxRequestFinishFlag = (new WebDriverWait(driver,
+		// 10)).until(new ExpectedCondition<Boolean>() {
+		// public Boolean apply(WebDriver d) {
+		// JavascriptExecutor js = (JavascriptExecutor) d;
+		// return (Boolean) js.executeScript("return jQueery.active==0");
+		// }
+		// });
+	}
+
+	/*
+	 * 判断界面元素是否存在
+	 */
+	@Test(groups = ("TestIsElementPresent"))
+	public void TestIsElementPresent() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("sogou");
+		driver = ba.setUp();
+		Element e = new Element();
+		if (e.IsElementPresent(driver, By.id("query"))) {
+			WebElement searchInputBox = driver.findElement(By.id("query"));
+
+			if (searchInputBox.isEnabled() == true) {
+				String inputStr = "sogou首页输入框被成功找到";
+				searchInputBox.sendKeys(inputStr);
+				assertEquals(inputStr, driver.findElement(By.id("query")).getAttribute("value"));
+			}
+		} else {
+			fail("search Input Box is not found");
+		}
+
+		ba.close();
+	}
+
+	/*
+	 * 使用title属性识别和操作新弹出的浏览器窗口
+	 */
+	@Test(groups = ("identifyPopUpWindowByTitle"))
+	public void identifyPopUpWindowByTitle() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/identifyPopUpWindowByTitle.html");
+		driver = ba.setUp();
+		// 获得当前网页的句柄
+		String parentWindowHandle = driver.getWindowHandle();
+		// 进入另一个网页
+		driver.findElement(By.xpath("//a")).click();
+		// 获取所有网页句柄
+		Set<String> allWindowHandles = driver.getWindowHandles();
+		if (!allWindowHandles.isEmpty()) {
+			for (String windowHandle : allWindowHandles) {
+				try {
+					if (driver.switchTo().window(windowHandle).getTitle().equals("搜狗搜索引擎 - 上网从搜狗开始")) {
+						String seachSendKeys = "sogou首页浏览器窗口被找到";
+						driver.findElement(By.id("query")).sendKeys(seachSendKeys);
+						assertEquals(driver.findElement(By.id("query")).getAttribute("value"), seachSendKeys);
+					}
+				} catch (NoSuchWindowException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		driver.switchTo().window(parentWindowHandle);
+		assertEquals(driver.getTitle(), "你喜欢水果");
+		for (String windowHandle : allWindowHandles)
+			driver.switchTo().window(windowHandle).close();
+
+	}
+
+	/*
+	 * 使用页面文字识别和操作新弹出的浏览器窗口
+	 */
+	@Test(groups = ("identifyPopUpWindowByPageSource"))
+	public void identifyPopUpWindowByPageSource() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/identifyPopUpWindowByTitle.html");
+		driver = ba.setUp();
+		// 获得当前网页的句柄
+		String parentWindowHandle = driver.getWindowHandle();
+		// 进入另一个网页
+		driver.findElement(By.xpath("//a")).click();
+		// 获取所有网页句柄
+		Set<String> allWindowHandles = driver.getWindowHandles();
+
+		if (!allWindowHandles.isEmpty()) {
+			for (String windowHandle : allWindowHandles) {
+				try {
+					if (driver.switchTo().window(windowHandle).getPageSource().contains("搜狗搜索")) {
+						String seachSendKeys = "sogou首页浏览器窗口被找到";
+						driver.findElement(By.id("query")).sendKeys(seachSendKeys);
+						assertEquals(driver.findElement(By.id("query")).getAttribute("value"), seachSendKeys);
+					}
+				} catch (NoSuchWindowException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		driver.switchTo().window(parentWindowHandle);
+		assertEquals(driver.getTitle(), "你喜欢水果");
+
+		for (String windowHandle : allWindowHandles)
+			driver.switchTo().window(windowHandle).close();
+
+	}
+
+	/*
+	 * 操作网页的alert
+	 */
+	@Test(groups = ("testHandleAlert"))
+	public void testHandleAlert() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/testHandleAlert.html");
+		driver = ba.setUp();
+
+		WebElement button = driver.findElement(By.xpath("//input"));
+		button.click();
+		Thread.sleep(5000);
+		Alert alert = driver.switchTo().alert();
+		assertEquals("这是一个alert弹窗", alert.getText());
+
+		alert.accept();
+
+		Thread.sleep(5000);
+
+		ba.close();
+
+	}
+
+	/*
+	 * 操作网页的prompt
+	 */
+	@Test(groups = ("testHandlePrompt"))
+	public void testHandlePrompt() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/testHandlePrompt.html");
+		driver = ba.setUp();
+
+		WebElement button = driver.findElement(By.xpath("//input"));
+		button.click();
+		Thread.sleep(3000);
+
+		// 验证prompt内容
+		Alert alert = driver.switchTo().alert();
+		assertEquals("这是一个prompt弹出窗", alert.getText());
+		Thread.sleep(3000);
+
+		// 输入内容
+		alert.sendKeys("输入内容");
+		Thread.sleep(3000);
+
+		// 点击确定按钮
+		alert.accept();
+		Thread.sleep(3000);
+
+		// 点击取消按钮
+		button.click();
+		Thread.sleep(3000);
+		alert.dismiss();
+		Thread.sleep(3000);
+
+		ba.close();
+
+	}
+
+	/*
+	 * 操作Frame中的页面元素
+	 */
+	@Test(groups = ("testHandleFrame"))
+	public void testHandleFrame() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/testHandleFrame.html");
+		driver = ba.setUp();
+
+		driver.switchTo().frame("leftframe");
+		WebElement leftFrame = driver.findElement(By.xpath("//p"));
+		String leftStr = leftFrame.getText();
+		assertEquals(leftStr, "这是左侧frame页面上的文字");
+
+		driver.switchTo().defaultContent();
+		driver.switchTo().frame("middleframe");
+		WebElement middleFrame = driver.findElement(By.xpath("//p"));
+		String middleStr = middleFrame.getText();
+		assertEquals(middleStr, "这是中间frame页面上的文字");
+
+		driver.switchTo().defaultContent();
+		driver.switchTo().frame("rightframe");
+		WebElement rightFrame = driver.findElement(By.xpath("//p"));
+		String rightStr = rightFrame.getText();
+		assertEquals(rightStr, "这是右侧frame页面上的文字");
+
+		// 索引从0开始
+		driver.switchTo().defaultContent();
+		driver.switchTo().frame(1);
+		WebElement indexMiddleFrame = driver.findElement(By.xpath("//p"));
+		String indexMiddleStr = indexMiddleFrame.getText();
+		assertEquals(indexMiddleStr, "这是中间frame页面上的文字");
+
+		ba.close();
+
+	}
+
+	/*
+	 * 操作Frame中的HTML源码操作网页
+	 */
+	@Test(groups = ("testHandleFrameByPageSource"))
+	public void testHandleFrameByPageSource() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/testHandleFrame.html");
+		driver = ba.setUp();
+
+		List<WebElement> frames = driver.findElements(By.tagName("frame"));
+
+		boolean isTag = false;
+
+		for (WebElement frame : frames) {
+			driver.switchTo().frame(frame);
+			if (driver.getPageSource().contains("中间frame")) {
+				assertEquals("这是中间frame页面上的文字", driver.findElement(By.tagName("p")).getText());
+				isTag = true;
+				break;
+			} else
+				driver.switchTo().defaultContent();
+		}
+
+		if (!isTag)
+			fail("middleFrame is not find");
+
+		driver.switchTo().defaultContent();
+		ba.close();
+
+	}
+
+	/*
+	 * 操作IFrame中的HTML源码操作网页
+	 */
+	@Test(groups = ("testHandleIFrame"))
+	public void testHandleIFrame() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/testHandleFrame.html");
+		driver = ba.setUp();
+
+		driver.switchTo().frame(0);
+		WebElement iframe = driver.findElement(By.tagName("iframe"));
+
+		driver.switchTo().frame(iframe);
+		assertEquals("这是iframe页面上的文字", driver.findElement(By.tagName("p")).getText());
+
+		driver.switchTo().defaultContent();
+		driver.switchTo().frame(1);
+		WebElement indexMiddleFrame = driver.findElement(By.xpath("//p"));
+		String indexMiddleStr = indexMiddleFrame.getText();
+		assertEquals(indexMiddleStr, "这是中间frame页面上的文字");
+
+		ba.close();
+
+	}
+
+	/*
+	 * 操作浏览器的cookie
+	 */
+	@Test(groups = ("testCookie"))
+	public void testCookie() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("sogou");
+		driver = ba.setUp();
+		Set<Cookie> cookies = driver.manage().getCookies();
+		System.out.println("------------------------");
+		System.out.println(String.format("Domain -> name -> value -> expiry -> path"));
+
+		for (Cookie cookie : cookies) {
+			System.out.println(String.format("%s -> %s -> %s -> %s -> %s", cookie.getDomain(), cookie.getName(),
+					cookie.getValue(), cookie.getExpiry(), cookie.getPath()));
+		}
+
+		driver.manage().deleteCookieNamed(".www.sogou.com");
+		cookies = driver.manage().getCookies();
+		System.out.println("------------------------");
+		System.out.println(String.format("Domain -> name -> value -> expiry -> path"));
+
+		for (Cookie cookie : cookies) {
+			System.out.println(String.format("%s -> %s -> %s -> %s -> %s", cookie.getDomain(), cookie.getName(),
+					cookie.getValue(), cookie.getExpiry(), cookie.getPath()));
+		}
+
+		driver.manage().deleteAllCookies();
+		cookies = driver.manage().getCookies();
+		System.out.println("------------------------");
+		System.out.println(String.format("Domain -> name -> value -> expiry -> path"));
+
+		for (Cookie cookie : cookies) {
+			System.out.println(String.format("%s -> %s -> %s -> %s -> %s", cookie.getDomain(), cookie.getName(),
+					cookie.getValue(), cookie.getExpiry(), cookie.getPath()));
+		}
+
+		ba.close();
+
 	}
 }

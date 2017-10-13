@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import Tools.BeginAndCloseForChrome;
+import Tools.BeginAndCloseChrome;
 
 /*
  * 8.11章节实例
@@ -19,12 +19,9 @@ public class TableElement {
 	// Define brower driver
 	private WebDriver driver;
 
-	// Define URL
-	private String baseUrl;
-
 	@Test(groups = "LocateTable")
 	public void LocateTable() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/table.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/table.html");
 		driver = ba.setUp();
 
 		WebElement table = driver.findElement(By.id("table"));
@@ -48,7 +45,7 @@ public class TableElement {
 
 	@Test(groups = "LocateTableTr")
 	public void LocateTableTr() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/table.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/table.html");
 		driver = ba.setUp();
 		/*
 		 * 以下两种定位方法任选， 一种是一次直接定位到所需标签
@@ -73,7 +70,7 @@ public class TableElement {
 	 */
 	@Test(groups = "LocateTableCheckBox")
 	public void LocateTableCheckBox() throws Exception {
-		BeginAndCloseForChrome ba = new Tools.BeginAndCloseForChrome("file:///E:/ZIXUE/web/tableChcekBox.html");
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/tableChcekBox.html");
 		driver = ba.setUp();
 		WebElement WebchcekBox = driver.findElement(By.xpath("//table[@id='table']/tbody/tr[3]/td[1]/input[2]"));
 

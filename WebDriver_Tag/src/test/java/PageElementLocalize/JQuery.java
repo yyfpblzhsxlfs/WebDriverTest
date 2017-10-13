@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import Tools.BeginAndCloseForChrome;
+import Tools.BeginAndCloseChrome;
 
 /*
  * 8.10章节代码实例
@@ -18,9 +18,6 @@ import Tools.BeginAndCloseForChrome;
 public class JQuery {
 	// Define brower driver
 	private WebDriver driver;
-
-	// Define URL
-	private String baseUrl;
 
 	// Define JQuery mothed js
 	JavascriptExecutor js;
@@ -31,7 +28,7 @@ public class JQuery {
 	@Test(groups = { "JQueryLocalize" })
 	public void JQueryLocalize() throws Exception {
 		// init Chrome Brower Driver
-		BeginAndCloseForChrome bc = new BeginAndCloseForChrome("http://sogou.com/");
+		BeginAndCloseChrome bc = new BeginAndCloseChrome("http://sogou.com/");
 		driver = bc.setUp();
 
 		js = (JavascriptExecutor) driver;
