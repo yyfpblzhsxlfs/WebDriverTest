@@ -945,4 +945,40 @@ public class BrowerWebElement {
 		ba.close();
 
 	}
+
+	/*
+	 * 操作浏览器iframe
+	 */
+	@Test(groups = ("testIframe"))
+	public void testIframe() throws Exception {
+		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("file:///E:/ZIXUE/web/testHandleFrameToIframe.html");
+		driver = ba.setUp();
+
+		driver.switchTo().frame("leftframe");
+		WebElement leftFrame = driver.findElement(By.xpath("//p"));
+		String leftStr = leftFrame.getText();
+		assertEquals(leftStr, "这是左侧frame页面上的文字");
+
+		driver.switchTo().defaultContent();
+		driver.switchTo().frame("middleframe");
+		WebElement middleFrame = driver.findElement(By.xpath("//p"));
+		String middleStr = middleFrame.getText();
+		assertEquals(middleStr, "这是中间frame页面上的文字");
+
+		driver.switchTo().defaultContent();
+		driver.switchTo().frame("rightframe");
+		WebElement rightFrame = driver.findElement(By.xpath("//p"));
+		String rightStr = rightFrame.getText();
+		assertEquals(rightStr, "这是右侧frame页面上的文字");
+
+		// 索引从0开始
+		driver.switchTo().defaultContent();
+		driver.switchTo().frame(1);
+		WebElement indexMiddleFrame = driver.findElement(By.xpath("//p"));
+		String indexMiddleStr = indexMiddleFrame.getText();
+		assertEquals(indexMiddleStr, "这是中间frame页面上的文字");
+
+		ba.close();
+
+	}
 }

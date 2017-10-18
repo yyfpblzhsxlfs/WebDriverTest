@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="40" total="41" passed="1">
+<testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="WebDriver" duration-ms="8640" started-at="2017-10-13T06:00:45Z" finished-at="2017-10-13T06:00:53Z">
+  <suite name="WebDriver" duration-ms="6722" started-at="2017-10-18T01:34:56Z" finished-at="2017-10-18T01:35:02Z">
     <groups>
-      <group name="testCookie">
-        <method signature="BrowerWebElement.testCookie()[pri:0, instance:PageElementLocalize.BrowerWebElement@47c62251]" name="testCookie" class="PageElementLocalize.BrowerWebElement"/>
-      </group> <!-- testCookie -->
+      <group name="otherMonths">
+        <method signature="SetDateInput.otherMonths()[pri:0, instance:AdvancedInstance.SetDateInput@3e6fa38a]" name="otherMonths" class="AdvancedInstance.SetDateInput"/>
+      </group> <!-- otherMonths -->
     </groups>
-    <test name="ByTag" duration-ms="8640" started-at="2017-10-13T06:00:45Z" finished-at="2017-10-13T06:00:53Z">
-      <class name="PageElementLocalize.BrowerWebElement">
-        <test-method status="PASS" signature="testCookie()[pri:0, instance:PageElementLocalize.BrowerWebElement@47c62251]" name="testCookie" duration-ms="8612" started-at="2017-10-13T14:00:45Z" finished-at="2017-10-13T14:00:53Z">
+    <test name="AdvancedInstanceTest" duration-ms="6722" started-at="2017-10-18T01:34:56Z" finished-at="2017-10-18T01:35:02Z">
+      <class name="AdvancedInstance.SetDateInput">
+        <test-method status="PASS" signature="otherMonths()[pri:0, instance:AdvancedInstance.SetDateInput@3e6fa38a]" name="otherMonths" duration-ms="6678" started-at="2017-10-18T09:34:56Z" finished-at="2017-10-18T09:35:02Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testCookie -->
-      </class> <!-- PageElementLocalize.BrowerWebElement -->
-    </test> <!-- ByTag -->
+        </test-method> <!-- otherMonths -->
+      </class> <!-- AdvancedInstance.SetDateInput -->
+    </test> <!-- AdvancedInstanceTest -->
   </suite> <!-- WebDriver -->
 </testng-results>

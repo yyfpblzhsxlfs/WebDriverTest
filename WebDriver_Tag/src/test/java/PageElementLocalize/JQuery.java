@@ -36,7 +36,6 @@ public class JQuery {
 		injectjQueryIfNeeded();
 
 		List<WebElement> eles = (List<WebElement>) js.executeScript("return jQuery.find('a')");
-
 		for (int i = 0; i < eles.size(); i++) {
 			System.out.println(i + ":" + eles.get(i).getText());
 		}

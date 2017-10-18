@@ -2,7 +2,7 @@
 	<test name="ByTag">
 		<groups>
 			<run>
-				<include name="testCookie" />
+				<include name="testIframe" />
 			</run>
 		</groups>
 		<classes>

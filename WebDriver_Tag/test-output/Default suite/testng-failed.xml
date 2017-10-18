@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="TestWebDriver.BrowerTest">
+      <class name="AdvancedInstance.AJAXClick">
         <methods>
-          <include name="test"/>
+          <include name="AJAXClickText"/>
         </methods>
-      </class> <!-- TestWebDriver.BrowerTest -->
+      </class> <!-- AdvancedInstance.AJAXClick -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

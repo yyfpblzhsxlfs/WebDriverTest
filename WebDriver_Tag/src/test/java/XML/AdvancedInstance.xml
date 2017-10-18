@@ -1,0 +1,15 @@
+<suite name="WebDriver">
+	<test name="AdvancedInstanceTest">
+		<groups>
+			<run>
+				<include name="otherMonths" />
+			</run>
+		</groups>
+		<classes>
+			<class name="AdvancedInstance.JavaScriptExecutor" />
+			<class name="AdvancedInstance.AJAXClick" />
+			<class name="AdvancedInstance.setAttributePackage" />
+			<class name="AdvancedInstance.SetDateInput" />
+		</classes>
+	</test>
+</suite>
