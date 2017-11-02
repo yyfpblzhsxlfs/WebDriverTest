@@ -2,7 +2,7 @@
 	<test name="AdvancedInstanceTest">
 		<groups>
 			<run>
-				<include name="otherMonths" />
+				<include name="Robot" />
 			</run>
 		</groups>
 		<classes>
@@ -10,6 +10,10 @@
 			<class name="AdvancedInstance.AJAXClick" />
 			<class name="AdvancedInstance.setAttributePackage" />
 			<class name="AdvancedInstance.SetDateInput" />
+			<class name="AdvancedInstance.DownLoadFile" />
+			<class name="AdvancedInstance.testUpLoad" />
+			<class name="AdvancedInstance.ScrollBar" />
+			<class name="AdvancedInstance.RobotTest" />
 		</classes>
 	</test>
 </suite>

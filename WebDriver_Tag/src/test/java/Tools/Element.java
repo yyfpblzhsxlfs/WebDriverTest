@@ -39,6 +39,8 @@ public class Element {
 				System.out.println("JS的Object参数是" + objects.length + "，JS参数超限，无法执行JS执行器");
 				break;
 			}
+		} else if (objects == null) {
+			returnOBJ = js.executeScript(jsStr);
 		}
 
 		return returnOBJ;
@@ -65,11 +67,22 @@ public class Element {
 				System.out.println("JS的Object参数是" + objects.length);
 				break;
 			}
+		} else if (objects == null) {
+			js.executeScript(jsStr);
 		}
 	}
 
-	// var startDate = document.getElementById ("datepicker").value;
-	//
-	// alert(startDate.value);
+	public void JavascriptSet(WebDriver driver, String jsStr) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript(jsStr);
+	}
+
+	public Object JavascriptReturn(WebDriver driver, String jsStr) {
+		Object returnOBJ = null;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		returnOBJ = js.executeScript(jsStr);
+
+		return returnOBJ;
+	}
 
 }

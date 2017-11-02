@@ -24,9 +24,10 @@ public class AJAXClick {
 		String actualStr = null;
 		BeginAndCloseChrome ba = new Tools.BeginAndCloseChrome("sogou");
 		driver = ba.setUp();
-
+		// 点击搜索框，弹出AJAX下拉列表
 		driver.findElement(By.id("query")).click();
 
+		// 选中对应的元素列表，便利元素列表找到对应元素
 		List<WebElement> searchInputBox = driver.findElements(By.xpath("//*[@id='vl']/div[1]/ul/li"));
 		for (WebElement e : searchInputBox) {
 			if (e.getText().contains("大学生")) {

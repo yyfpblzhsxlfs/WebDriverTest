@@ -3,11 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="AdvancedInstance.AJAXClick">
+      <class name="AdvancedInstance.ScrollBar">
         <methods>
-          <include name="AJAXClickText"/>
+          <include name="BeforeMethod"/>
+          <include name="ScrollingToElementofApage"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- AdvancedInstance.AJAXClick -->
+      </class> <!-- AdvancedInstance.ScrollBar -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

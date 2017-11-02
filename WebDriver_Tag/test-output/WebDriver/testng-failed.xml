@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [WebDriver]">
-  <test name="AdvancedInstanceTest(failed)">
+  <test name="ByTag(failed)">
     <groups>
       <run>
-        <include name="setAttributeValue"/>
+        <include name="getWebMsg"/>
       </run>
     </groups>
     <classes>
-      <class name="AdvancedInstance.setAttributePackage">
+      <class name="PageElementLocalize.BrowerWebElement">
         <methods>
-          <include name="setAttributeValue"/>
+          <include name="getWebMsg"/>
         </methods>
-      </class> <!-- AdvancedInstance.setAttributePackage -->
+      </class> <!-- PageElementLocalize.BrowerWebElement -->
     </classes>
-  </test> <!-- AdvancedInstanceTest(failed) -->
+  </test> <!-- ByTag(failed) -->
 </suite> <!-- Failed suite [WebDriver] -->

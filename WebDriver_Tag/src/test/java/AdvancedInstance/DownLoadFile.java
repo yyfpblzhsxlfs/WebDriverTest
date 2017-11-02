@@ -8,11 +8,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.annotations.Test;
 
-import com.gargoylesoftware.htmlunit.javascript.host.URL;
-
-import Tools.BeginAndCloseChrome;
-import Tools.BeginAndCloseFireFox;
-
 public class DownLoadFile {
 	public static String downloadFilePath = "E:\\ZIXUE\\DOWNLOAD";
 	WebDriver driver;

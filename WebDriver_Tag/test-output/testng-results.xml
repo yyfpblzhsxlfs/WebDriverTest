@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
+<testng-results skipped="0" failed="0" ignored="10" total="11" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="WebDriver" duration-ms="6722" started-at="2017-10-18T01:34:56Z" finished-at="2017-10-18T01:35:02Z">
+  <suite name="WebDriver" duration-ms="15402" started-at="2017-11-02T09:00:02Z" finished-at="2017-11-02T09:00:18Z">
     <groups>
-      <group name="otherMonths">
-        <method signature="SetDateInput.otherMonths()[pri:0, instance:AdvancedInstance.SetDateInput@3e6fa38a]" name="otherMonths" class="AdvancedInstance.SetDateInput"/>
-      </group> <!-- otherMonths -->
+      <group name="Robot">
+        <method signature="RobotTest.Robot()[pri:0, instance:AdvancedInstance.RobotTest@6093dd95]" name="Robot" class="AdvancedInstance.RobotTest"/>
+      </group> <!-- Robot -->
     </groups>
-    <test name="AdvancedInstanceTest" duration-ms="6722" started-at="2017-10-18T01:34:56Z" finished-at="2017-10-18T01:35:02Z">
-      <class name="AdvancedInstance.SetDateInput">
-        <test-method status="PASS" signature="otherMonths()[pri:0, instance:AdvancedInstance.SetDateInput@3e6fa38a]" name="otherMonths" duration-ms="6678" started-at="2017-10-18T09:34:56Z" finished-at="2017-10-18T09:35:02Z">
+    <test name="AdvancedInstanceTest" duration-ms="15402" started-at="2017-11-02T09:00:02Z" finished-at="2017-11-02T09:00:18Z">
+      <class name="AdvancedInstance.RobotTest">
+        <test-method status="PASS" signature="Robot()[pri:0, instance:AdvancedInstance.RobotTest@6093dd95]" name="Robot" duration-ms="15363" started-at="2017-11-02T17:00:02Z" finished-at="2017-11-02T17:00:18Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- otherMonths -->
-      </class> <!-- AdvancedInstance.SetDateInput -->
+        </test-method> <!-- Robot -->
+      </class> <!-- AdvancedInstance.RobotTest -->
     </test> <!-- AdvancedInstanceTest -->
   </suite> <!-- WebDriver -->
 </testng-results>
