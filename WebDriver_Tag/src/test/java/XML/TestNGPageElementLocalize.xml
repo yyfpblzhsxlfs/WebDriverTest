@@ -2,7 +2,7 @@
 	<test name="ByTag">
 		<groups>
 			<run>
-				<include name="getWebMsg" />
+				<include name="testLink" />
 			</run>
 		</groups>
 		<classes>
