@@ -2,7 +2,7 @@
 	<test name="ByTag">
 		<groups>
 			<run>
-				<include name="testLink" />
+				<include name="Mooc" />
 			</run>
 		</groups>
 		<classes>

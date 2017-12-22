@@ -4,13 +4,13 @@
   <test name="ByTag(failed)">
     <groups>
       <run>
-        <include name="getWebMsg"/>
+        <include name="Mooc"/>
       </run>
     </groups>
     <classes>
       <class name="PageElementLocalize.BrowerWebElement">
         <methods>
-          <include name="getWebMsg"/>
+          <include name="Mooc"/>
         </methods>
       </class> <!-- PageElementLocalize.BrowerWebElement -->
     </classes>
