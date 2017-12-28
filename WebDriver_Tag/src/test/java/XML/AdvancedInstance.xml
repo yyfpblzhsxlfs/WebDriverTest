@@ -2,7 +2,7 @@
 	<test name="AdvancedInstanceTest">
 		<groups>
 			<run>
-				<include name="Robot" />
+				<include name="testObjectMap" />
 			</run>
 		</groups>
 		<classes>
@@ -14,6 +14,7 @@
 			<class name="AdvancedInstance.testUpLoad" />
 			<class name="AdvancedInstance.ScrollBar" />
 			<class name="AdvancedInstance.RobotTest" />
+			<class name="AdvancedInstance.ObjectMapTest" />
 		</classes>
 	</test>
 </suite>

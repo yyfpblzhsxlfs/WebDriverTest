@@ -1,4 +1,4 @@
-package AdvancedInstance;
+package Tools;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -6,10 +6,11 @@ import java.util.Properties;
 
 import org.openqa.selenium.By;
 
-import net.bytebuddy.implementation.bytecode.Throw;
-
+/*
+ * 11.11章节对象库的工具类，用于读取对象和判断使用的方法
+ */
 public class ObjectMap {
-	Properties properties;
+	public Properties properties;
 
 	public ObjectMap(String propFile) {
 		properties = new Properties();
